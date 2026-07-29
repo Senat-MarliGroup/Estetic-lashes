@@ -232,35 +232,25 @@
       padding: 0 20px 40px;
       overflow: hidden;
     }
-    ..hero-bg {
-  position: absolute;
-  inset: 0;
-  background: url('hero.jpg') center/cover no-repeat;
-  z-index: 0;
-}
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  /* затемнение снизу, где текст */
-  background: linear-gradient(
-    to top,
-    rgba(45, 31, 35, 0.85) 0%,
-    rgba(45, 31, 35, 0.4) 40%,
-    rgba(45, 31, 35, 0.1) 70%,
-    transparent 100%
-  );
-  z-index: 1;
-}
-
-    .hero-bg::before {
+   
+         .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('hero.jpg') center/cover no-repeat;
+      z-index: 0;
+    }
+    .hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.25) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 0%, transparent 45%),
-        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 50%);
+      background: linear-gradient(
+        to top,
+        rgba(45, 31, 35, 0.85) 0%,
+        rgba(45, 31, 35, 0.4) 40%,
+        rgba(45, 31, 35, 0.1) 70%,
+        transparent 100%
+      );
+      z-index: 1;
     }
     .hero-bubbles {
       position: absolute;
@@ -274,6 +264,44 @@
         radial-gradient(circle at 25% 75%, rgba(255,255,255,0.08) 0%, transparent 32%),
         radial-gradient(circle at 60% 45%, rgba(255,255,255,0.06) 0%, transparent 26%);
     }
+    .hero-content {
+      position: relative;
+      z-index: 2;          /* ← было z-index: 1, поставь 2 */
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 32px;
+    }
+    .hero-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);   /* ← ВОТ ЭТО ДОБАВЬ */
+    }
+    .hero-content p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.9);
+      max-width: 540px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+      line-height: 1.8;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.4);    /* ← И ВОТ ЭТО ДОБАВЬ */
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.25) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 50%);
+    }
+   
     .hero-content {
       position: relative;
       z-index: 1;
@@ -290,7 +318,9 @@
       margin-bottom: 12px;
       letter-spacing: 4px;
       text-transform: uppercase;
+      
     }
+    
     .hero-content p {
       font-size: 1rem;
       color: rgba(255,255,255,0.9);
